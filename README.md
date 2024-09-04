@@ -7,6 +7,7 @@ This project is a Case Management System built using Spring Boot, Kogito, and jB
 - Java 17 or higher
 - Maven 3.6 or higher
 - Git (if cloning from a repository)
+- include Kogito bundler extension in VS code editor
 
 ## Project Structure
 
