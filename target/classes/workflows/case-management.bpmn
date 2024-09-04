@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_ZGWrYEyWED2T_5xl8n4xXg" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level2InvestigatorTask_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1CheckerTask_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_PriorityInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_CommentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_DescriptionInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_CreatedByInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_TaskNameInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_ContentInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_NotStartedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_NotCompletedReassignInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_NotStartedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="_Level1MakerTask_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:collaboration id="_451A1B8A-0E83-4ECB-AA34-64C8CBE80C85" name="Default Collaboration">
+    <bpmn2:participant id="_30A85D17-057C-454D-8CB1-3378F770EABF" name="Pool Participant" processRef="case_management"/>
+  </bpmn2:collaboration>
+  <bpmn2:process id="case_management" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false" name="case-management" isExecutable="true" processType="Public">
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Level1MakerTask"/>
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Level1MakerTask" targetRef="DecisionGateway"/>
+    <bpmn2:sequenceFlow id="Flow_3" name="False Match" sourceRef="DecisionGateway" targetRef="Level1CheckerTask">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[False Match]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_4" name="Potential Match" sourceRef="DecisionGateway" targetRef="Level2InvestigatorTask">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Potential Match]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_6" name="Case Decision" sourceRef="Level2InvestigatorTask" targetRef="EndEvent_1">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Case Decision]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="Flow_5" name="False Match" sourceRef="Level1CheckerTask" targetRef="EndEvent_1">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[False Match]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:startEvent id="StartEvent_1" name="Case Created">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Case Created]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:outgoing>Flow_1</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:userTask id="Level1MakerTask" name="Level 1 Maker Review">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Level 1 Maker Review]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_1</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_2</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Level1MakerTask_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_Level1MakerTask_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="Level1MakerTask_SkippableInputX" drools:dtype="Object" itemSubjectRef="_Level1MakerTask_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Level1MakerTask_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Level1MakerTask_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Level1MakerTask_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[Level1MakerTask_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Level1MakerTask_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[Level1MakerTask_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="DecisionGateway" name="Decision" gatewayDirection="Diverging">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Decision]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_2</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_4</bpmn2:outgoing>
+      <bpmn2:outgoing>Flow_3</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:userTask id="Level1CheckerTask" name="Level 1 Checker Review">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Level 1 Checker Review]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_3</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_5</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Level1CheckerTask_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_Level1CheckerTask_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="Level1CheckerTask_SkippableInputX" drools:dtype="Object" itemSubjectRef="_Level1CheckerTask_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Level1CheckerTask_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Level1CheckerTask_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Level1CheckerTask_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[Level1CheckerTask_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Level1CheckerTask_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[Level1CheckerTask_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="Level2InvestigatorTask" name="Level 2 Investigator Review">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Level 2 Investigator Review]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_4</bpmn2:incoming>
+      <bpmn2:outgoing>Flow_6</bpmn2:outgoing>
+      <bpmn2:ioSpecification>
+        <bpmn2:dataInput id="Level2InvestigatorTask_TaskNameInputX" drools:dtype="Object" itemSubjectRef="_Level2InvestigatorTask_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="Level2InvestigatorTask_SkippableInputX" drools:dtype="Object" itemSubjectRef="_Level2InvestigatorTask_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet>
+          <bpmn2:dataInputRefs>Level2InvestigatorTask_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>Level2InvestigatorTask_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Level2InvestigatorTask_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[Level2InvestigatorTask_TaskNameInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation>
+        <bpmn2:targetRef>Level2InvestigatorTask_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression"><![CDATA[Level2InvestigatorTask_SkippableInputX]]></bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:endEvent id="EndEvent_1" name="Case Closed">
+      <bpmn2:extensionElements>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Case Closed]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>Flow_5</bpmn2:incoming>
+      <bpmn2:incoming>Flow_6</bpmn2:incoming>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="case_management">
+      <bpmndi:BPMNShape id="shape_EndEvent_1" bpmnElement="EndEvent_1">
+        <dc:Bounds height="56" width="56" x="1079" y="139"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Level2InvestigatorTask" bpmnElement="Level2InvestigatorTask">
+        <dc:Bounds height="75" width="136" x="586" y="211"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Level1CheckerTask" bpmnElement="Level1CheckerTask">
+        <dc:Bounds height="80" width="144" x="578" y="78"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_DecisionGateway" bpmnElement="DecisionGateway">
+        <dc:Bounds height="56" width="56" x="422" y="92"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_Level1MakerTask" bpmnElement="Level1MakerTask">
+        <dc:Bounds height="80" width="100" x="259" y="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape_StartEvent_1" bpmnElement="StartEvent_1">
+        <dc:Bounds height="56" width="56" x="173" y="102"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge_shape_Level1CheckerTask_to_shape_EndEvent_1" bpmnElement="Flow_5">
+        <di:waypoint x="722" y="118"/>
+        <di:waypoint x="1079" y="157"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Level2InvestigatorTask_to_shape_EndEvent_1" bpmnElement="Flow_6">
+        <di:waypoint x="722" y="248.5"/>
+        <di:waypoint x="1079" y="157"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_DecisionGateway_to_shape_Level2InvestigatorTask" bpmnElement="Flow_4">
+        <di:waypoint x="447" y="142"/>
+        <di:waypoint x="450" y="249"/>
+        <di:waypoint x="586" y="248.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_DecisionGateway_to_shape_Level1CheckerTask" bpmnElement="Flow_3">
+        <di:waypoint x="472" y="110"/>
+        <di:waypoint x="578" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_Level1MakerTask_to_shape_DecisionGateway" bpmnElement="Flow_2">
+        <di:waypoint x="359" y="120"/>
+        <di:waypoint x="422" y="110"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape_StartEvent_1_to_shape_Level1MakerTask" bpmnElement="Flow_1">
+        <di:waypoint x="209" y="120"/>
+        <di:waypoint x="259" y="120"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters/>
+          <bpsim:ElementParameters elementRef="Level2InvestigatorTask">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Level1CheckerTask">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="Level1MakerTask">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters>
+              <bpsim:Availability>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters>
+              <bpsim:UnitCost>
+                <bpsim:FloatingParameter value="0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters elementRef="StartEvent_1">
+            <bpsim:TimeParameters>
+              <bpsim:ProcessingTime>
+                <bpsim:NormalDistribution mean="0" standardDeviation="0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_ZGWrYEyWED2T_5xl8n4xXg</bpmn2:source>
+    <bpmn2:target>_ZGWrYEyWED2T_5xl8n4xXg</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>

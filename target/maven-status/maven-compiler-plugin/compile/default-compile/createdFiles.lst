@@ -1,0 +1,6 @@
+com\citi\casemanager\service\CaseService.class
+com\citi\casemanager\model\Case.class
+com\citi\casemanager\service\CaseProcessService.class
+com\citi\casemanager\CaseManagementApplication.class
+com\citi\casemanager\repository\CaseRepository.class
+com\citi\casemanager\controller\CaseController.class
