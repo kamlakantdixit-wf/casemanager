@@ -39,7 +39,7 @@
   <bpmn2:collaboration id="_451A1B8A-0E83-4ECB-AA34-64C8CBE80C85" name="Default Collaboration">
     <bpmn2:participant id="_30A85D17-057C-454D-8CB1-3378F770EABF" name="Pool Participant" processRef="case_management"/>
   </bpmn2:collaboration>
-  <bpmn2:process id="case_management" drools:packageName="com.example" drools:version="1.0" drools:adHoc="false" name="case-management" isExecutable="true" processType="Public">
+  <bpmn2:process id="case_management" drools:packageName="com.citi" drools:version="1.0" drools:adHoc="false" name="case-management" isExecutable="true" processType="Public">
     <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="Level1MakerTask"/>
     <bpmn2:sequenceFlow id="Flow_2" sourceRef="Level1MakerTask" targetRef="DecisionGateway"/>
     <bpmn2:sequenceFlow id="Flow_3" name="False Match" sourceRef="DecisionGateway" targetRef="Level1CheckerTask">

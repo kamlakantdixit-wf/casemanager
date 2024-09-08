@@ -44,7 +44,11 @@
             <artifactId>kogito-addons-springboot-process-management</artifactId>
             <version>1.44.1.Final</version>
         </dependency>
-
+<dependency>
+    <groupId>org.kie.kogito</groupId>
+    <artifactId>kogito-addons-springboot-persistence-infinispan</artifactId>
+    <version>2.44.0.Alpha</version>
+</dependency>
 
     </dependencies>
 
